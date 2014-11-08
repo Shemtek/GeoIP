@@ -1,7 +1,6 @@
 _site
 .gh-pages
 .idea
-GeoLite2-City.mmdb
 apigen.phar
 box.phar
 build
