@@ -35,5 +35,5 @@ print($record->location->latitude . "\n"); // 44.9733
 print($record->location->longitude . "\n"); // -93.2323
 */
 echo 
-'  </body>
+'Hallo Welt!  </body>
 </html>';
