@@ -9,7 +9,8 @@ echo
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>Die IP ist in ...</title>
   </head>
-  <body>';
+  <body>
+  Hallo Welt!  ';
 
 
 // This creates the Reader object, which should be reused across
@@ -35,5 +36,5 @@ print($record->location->latitude . "\n"); // 44.9733
 print($record->location->longitude . "\n"); // -93.2323
 */
 echo 
-'Hallo Welt!  </body>
+'</body>
 </html>';
