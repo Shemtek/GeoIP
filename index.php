@@ -41,10 +41,10 @@ try {
                 {
                     $city = htmlentities($row['city']);
                 }
-                else throw new Exception('Zu dieser IP-Adresse kann ich leider nichts ermtteln.');
+                else throw new Exception("Zu der IP $ip kann ich leider keinen Ort ermtteln.");
             }
         }
-        else throw new Exception ('Diese IP ist mir leider nicht bekannt.');
+        else throw new Exception ("Zur IP $ip habe ich leider keine Geo-Daten.");
         
         
     } else {
