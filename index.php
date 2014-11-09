@@ -4,10 +4,10 @@ if (strpos($_SERVER["SERVER_NAME"], "www.geoip.local") !== false) define('SERVER
 else define('SERVER', 1); 
 
 define('CFG_USER', SERVER ? 'root'	: 'root');
-define('CFG_PASS', SERVER ? '': '');
+define('CFG_PASS', SERVER ? null : '');
 define('CFG_DB', SERVER ? 'geoip': 'geoip');
 define('CFG_MYSQL',SERVER ? null	: '127.0.0.1');
-define('CFG_SOCKET',SERVER ? ':/cloudsql/canvas-epigram-758:geo'	: null);
+define('CFG_SOCKET',SERVER ? '/cloudsql/canvas-epigram-758:geo'	: null);
 
 try {
     
