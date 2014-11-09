@@ -5,7 +5,7 @@ else define('SERVER', 1);
 
 define('CFG_USER', SERVER ? 'root'	: 'root');
 define('CFG_PASS', SERVER ? '': '');
-define('CFG_DB', SERVER ? 'geo': 'geoip');
+define('CFG_DB', SERVER ? 'geoip': 'geoip');
 define('CFG_MYSQL',SERVER ? ':/cloudsql/canvas-epigram-758:geo'	: '127.0.0.1:3306');
 
 try {
