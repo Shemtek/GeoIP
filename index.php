@@ -33,7 +33,7 @@ try {
     
     // "country".
     if(isset($_GET["ip"]))$ip = $_GET["ip"];
-    if (strlen($ip) == 0) $ip = $_SERVER["REMOTE_ADDR"];
+    else $ip = $_SERVER["REMOTE_ADDR"];
     $ip = filter_var($ip, FILTER_VALIDATE_IP);
     if ($ip) {
         
