@@ -11,3 +11,4 @@ geoip2-php.sublime-*
 vendor/
 *.sw?
 *.old
+/nbproject/private/

@@ -4,5 +4,15 @@ runtime: php
 api_version: 1
 
 handlers:
-- url: /.*
+- url: /
   script: index.php
+
+# Serve php scripts.
+- url: /(.+\.php)$
+  script: \1
+
+  # Serve mmdb as static resources.
+- url: /MMDB/(.*\.(mmdb))$
+  static_files: MMDB/\1
+  upload: MMDB/.*\.(mmdb)$
+  application_readable: true
