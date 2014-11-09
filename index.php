@@ -6,13 +6,21 @@ else define('SERVER', 1);
 define('CFG_USER', SERVER ? 'root'	: 'root');
 define('CFG_PASS', SERVER ? '': '');
 define('CFG_DB', SERVER ? 'geoip': 'geoip');
-define('CFG_MYSQL',SERVER ? ':/cloudsql/canvas-epigram-758:geo'	: '127.0.0.1');
+define('CFG_MYSQL',SERVER ? null	: '127.0.0.1');
+define('CFG_SOCKET',SERVER ? ':/cloudsql/canvas-epigram-758:geo'	: null);
 
 try {
     
     // DB Connection
-    // Using MySQLi API (connecting from APP Engine)    
-    $mysqli = new mysqli(CFG_MYSQL, CFG_USER, CFG_PASS , CFG_DB);
+    // Using mysqli (connecting from App Engine)
+    $mysqli = new mysqli(
+    CFG_MYSQL, // host
+    CFG_USER, // username
+    CFG_PASS      ,     // password
+    CFG_DB       , // database name
+    null,
+    CFG_SOCKET
+    );
     
     if ($mysqli->connect_errno) throw new Exception($mysqli->connect_error);
     // "country".
