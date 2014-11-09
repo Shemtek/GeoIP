@@ -9,7 +9,7 @@ use GeoIp2\Database\Reader;
 // This creates the Reader object, which should be reused across
 // lookups.
 try {
-    $filename = __DIR__ . '/MMDB/GeoLite2-City.mmdb';
+    $filename = __DIR__ . '/MMDB/GeoLite2-City.mmdb.gz';
      if(!file_exists($filename))
      {
          $reader = new Reader('gs://mmdb/GeoLite2-City.mmdb');
