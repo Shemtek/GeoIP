@@ -10,7 +10,8 @@ use GeoIp2\Database\Reader;
 // lookups.
 try {
     $filename = __DIR__ . '/MMDB/GeoLite2-City.mmdb';
-     if(!file_exists($filename))
+    $reader = new Reader($filename);
+     /*if(!file_exists($filename))
      {
          $reader = new Reader('gs://mmdb/GeoLite2-City.mmdb');
          //file_put_contents($filename, file_get_contents('gs://mmdb/GeoLite2-City.mmdb'));
@@ -18,7 +19,7 @@ try {
      else 
      {
          $reader = new Reader($filename);// Replace "city" with the appropriate method for your database, e.g.,
-     }
+     }*/
 
 // "country".
     if(isset($_GET["ip"]))$ip = $_GET["ip"];
