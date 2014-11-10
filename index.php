@@ -73,7 +73,7 @@ try {
     // TEst IP Bern 212.103.77.227
     //Defaultwert
     $output['ip']= $e->getMessage();
-    $output['city']= 'In deiner N&auml;he';
+    $output['city']= '';
     $output['latitude']= 46.91670;
     $output['longitude']= 7.46670;   
 }
