@@ -9,6 +9,8 @@ define('CFG_DB', SERVER ? 'geoip': 'geoip');
 define('CFG_MYSQL',SERVER ? null	: '127.0.0.1');
 define('CFG_SOCKET',SERVER ? '/cloudsql/canvas-epigram-758:geo'	: null);
 
+$output = array();
+
 try {
     
     // DB Connection
@@ -40,13 +42,19 @@ try {
         {
             if(isset($row['locId']))
             {
-               $query = "SELECT city FROM City WHERE locId = ".$row['locId']." LIMIT 1;"; 
+               $query = "SELECT city, Latitude, Longitude FROM City WHERE locId = ".$row['locId']." LIMIT 1;"; 
                $result = $mysqli->query($query);
         
                $row = $result->fetch_assoc();
    
                 if(count($row) && isset($row['city']))
                 {
+                    //Defaultwert
+                    $output['ip']= $ip;
+                    $output['city']= $row['city'];
+                    $output['latitude']= $row['Latitude'];
+                    $output['longitude']= $row['Longitude']; 
+                    
                     $city = htmlentities($row['city']);
                 }
                 else throw new Exception("Zu der IP $ip kann ich leider keinen Ort ermtteln.");
@@ -59,17 +67,16 @@ try {
         throw new Exception;
     }
     
-    
-   if(isset($city)) print_r($city);
-   else  print('In deiner N&auml;he');
-
-
 
 } catch (Exception $e) {
-
-    print $e->getMessage();
+   
+    // TEst IP Bern 212.103.77.227
+    //Defaultwert
+    $output['ip']= $e->getMessage();
+    $output['city']= 'In deiner N&auml;he';
+    $output['latitude']= 46.91670;
+    $output['longitude']= 7.46670;   
 }
-
-
+echo json_encode($output);
 
 $mysqli->close();
