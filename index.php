@@ -77,6 +77,7 @@ try {
     $output['latitude']= 46.91670;
     $output['longitude']= 7.46670;   
 }
-echo json_encode($output);
+header('Content-Type: application/json');
+echo "var geoData = ".json_encode($output);
 
 $mysqli->close();
